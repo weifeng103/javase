@@ -1,6 +1,6 @@
 package com;
 
 @FunctionalInterface
-public interface Comparator {
-      double compare(Object userOne, Object userTwo);
+public interface Comparator<T> {
+      double compare(T userOne, T userTwo);
 }
