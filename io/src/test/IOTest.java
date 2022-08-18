@@ -82,4 +82,23 @@ public class IOTest {
             e.printStackTrace();
         }
     }
+    @Test
+    public void objectTest() throws IOException {
+        OutputStream outputStream = new FileOutputStream("D:\\testCode\\b.txt");
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+        // 写一个对象到磁盘
+        objectOutputStream.writeObject(new User("李四",12,3));
+        objectOutputStream.close();
+        outputStream.close();
+    }
+    @Test
+    public void objectTest2() throws IOException, ClassNotFoundException {
+        InputStream inputStream = new FileInputStream("D:\\testCode\\b.txt");
+        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+        // 写一个对象到磁盘
+        User user = (User) objectInputStream.readObject();
+        objectInputStream.close();
+        inputStream.close();
+        System.out.println(user);
+    }
 }
