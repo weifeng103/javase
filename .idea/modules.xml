@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/abstractAndInterface/abstractAndInterface.iml" filepath="$PROJECT_DIR$/abstractAndInterface/abstractAndInterface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/annotationAndReflect/annotationAndReflect.iml" filepath="$PROJECT_DIR$/annotationAndReflect/annotationAndReflect.iml" />
       <module fileurl="file://$PROJECT_DIR$/api/api.iml" filepath="$PROJECT_DIR$/api/api.iml" />
       <module fileurl="file://$PROJECT_DIR$/Array/array.iml" filepath="$PROJECT_DIR$/Array/array.iml" />
       <module fileurl="file://$PROJECT_DIR$/collection/collection.iml" filepath="$PROJECT_DIR$/collection/collection.iml" />
