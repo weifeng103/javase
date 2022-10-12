@@ -56,6 +56,10 @@ public class ReflectTest {
     @Test
     public void annotationTest() throws NoSuchFieldException {
         Field declaredField = clazz.getDeclaredField("name");
-
+    }
+    @Test
+    public void getName(){
+        System.out.println(clazz.getName());
+        System.out.println(clazz.getSimpleName());
     }
 }

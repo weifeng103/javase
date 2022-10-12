@@ -2,14 +2,9 @@ package test;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.InetAddress;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.UnknownHostException;
+import java.io.*;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class SocketTest {
@@ -30,5 +25,28 @@ public class SocketTest {
         while (inputStream.read() != -1){
             outputStream.write(bytes);
         }
+    }
+    @Test
+    public void serverTest() throws IOException {
+        ServerSocket serverSocket = new ServerSocket();
+        serverSocket.bind(new InetSocketAddress(8888));
+        Socket socket = serverSocket.accept();
+        InputStreamReader inputStream = new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8);
+        byte[] bytes = new byte[10];
+        int len;
+        while ((len = inputStream.read()) != -1){
+            System.out.println(new String(bytes));
+        }
+        inputStream.close();
+        socket.close();
+    }
+    @Test
+    public void clientTest() throws IOException {
+        Socket socket = new Socket();
+        socket.connect(new InetSocketAddress(InetAddress.getLoopbackAddress(),8888));
+        OutputStreamWriter outputStream = new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8);
+        outputStream.write("你好");
+        outputStream.close();
+        socket.close();
     }
 }
